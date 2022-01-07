@@ -1,0 +1,137 @@
+@use "../utilities" as *;
+@use "../global/" as *;
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "egg"
+    "brand"
+    "glass"
+    "audience"
+    "design"
+    "photo";
+  text-align: center;
+  background: $white;
+
+  @include breakpoint("large") {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "brand egg"
+      "glass audience"
+      "design photo";
+    text-align: left;
+  }
+
+  h2 {
+    color: $vd-gray-blue;
+    font-size: rem(30);
+    font-weight: 900;
+  }
+
+  h3 {
+    font-size: rem(25);
+    font-weight: 900;
+    text-transform: capitalize;
+  }
+
+  p {
+    padding: rem(25) rem(10);
+
+    @include breakpoint("medium") {
+      padding: rem(25) 0;
+    }
+  }
+
+  a {
+    font-size: rem(18);
+    font-family: $fraunces;
+    text-transform: uppercase;
+    color: $vdd-blue;
+    position: relative;
+    z-index: 1;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: rem(1);
+      right: rem(-7);
+      left: rem(-7);
+      border-radius: rem(20);
+      opacity: 0.3;
+      z-index: -1;
+      transition: $transition;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      opacity: 1;
+    }
+  }
+
+  .egg {
+    grid-area: egg;
+  }
+
+  .brand {
+    grid-area: brand;
+    padding: rem(60) rem(30);
+    max-width: rem(435);
+    margin: auto;
+    a:after {
+      border-bottom: rem(7) solid $yellow;
+    }
+  }
+
+  .glass {
+    grid-area: glass;
+  }
+
+  .audience {
+    grid-area: audience;
+    padding: rem(60) rem(30);
+    max-width: rem(435);
+    margin: auto;
+
+    a:after {
+      border-bottom: rem(7) solid $soft-red;
+    }
+  }
+
+  .design {
+    grid-area: design;
+    h3,
+    p {
+      color: $cyan-design;
+    }
+
+    background: url(../../../images/mobile/image-graphic-design.jpg) top/ cover
+      no-repeat;
+
+    @include breakpoint("medium") {
+      background: url(../../../images/desktop/image-graphic-design.jpg)
+        top/cover no-repeat;
+    }
+  }
+
+  .photo {
+    grid-area: photo;
+    h3,
+    p {
+      color: $blue-photo;
+    }
+
+    background: url(../../../images/mobile/image-photography.jpg) top / cover
+      no-repeat;
+
+    @include breakpoint("medium") {
+      background: url(../../../images/desktop/image-photography.jpg) top/cover
+        no-repeat;
+    }
+  }
+
+  .container {
+    max-width: rem(330);
+    margin: 60vh auto rem(50);
+  }
+}

@@ -1,0 +1,53 @@
+@use "../global" as *;
+@use "../utilities" as *;
+
+.footer {
+  background: $cyan-footer;
+  text-align: center;
+  padding: rem(60) rem(30);
+
+  a {
+    font-size: rem(18);
+    color: $cyan-design;
+    transition: $transition;
+
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+
+    &:focus svg,
+    &:hover svg {
+      fill: $white;
+    }
+
+    &:focus i,
+    &:hover i {
+      color: $white;
+    }
+
+    &:not(:last-child) {
+      margin-right: rem(35);
+    }
+
+    i {
+      font-size: rem(25);
+      color: $cyan-design;
+      transition: $transition;
+    }
+  }
+
+  svg {
+    fill: $cyan-design;
+    transition: $transition;
+    margin-right: rem(-35);
+  }
+
+  .links {
+    margin-top: rem(40);
+  }
+
+  .social {
+    margin-top: rem(50);
+  }
+}

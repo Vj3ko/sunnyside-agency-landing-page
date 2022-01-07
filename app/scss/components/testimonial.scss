@@ -1,0 +1,65 @@
+@use "../utilities" as *;
+@use "../global" as *;
+
+.testimonials-container {
+  max-width: rem(1200);
+  text-align: center;
+  padding: rem(50) rem(40);
+  margin: auto;
+
+  h4 {
+    text-transform: uppercase;
+    color: $gray-blue;
+    letter-spacing: rem(4);
+
+    @include breakpoint("large") {
+      font-size: rem(25);
+    }
+  }
+
+  .testimonials {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: rem(50);
+    margin-top: rem(60);
+
+    @include breakpoint("large") {
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: rem(35);
+    }
+
+    .client {
+      display: flex;
+      flex-direction: column;
+      max-width: rem(350);
+      margin: auto;
+
+      &__img {
+        width: rem(60);
+        height: rem(60);
+        margin: auto;
+        border-radius: 50%;
+
+        @include breakpoint("large") {
+          width: rem(80);
+          height: rem(80);
+        }
+      }
+
+      &__quote {
+        margin: rem(35) auto;
+      }
+
+      &__name {
+        font-size: rem(20);
+        font-weight: 900;
+      }
+
+      &__position {
+        color: $gray-blue;
+        margin-top: rem(10);
+        opacity: 0.7;
+      }
+    }
+  }
+}

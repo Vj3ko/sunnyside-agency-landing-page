@@ -1,0 +1,94 @@
+@use "../utilities" as *;
+@use "../global" as *;
+
+.header {
+  padding: rem(30) rem(20);
+  background: url(../../../images/mobile/image-header.jpg) center no-repeat;
+  background-size: cover;
+  min-height: 75vh;
+  text-align: center;
+
+  @include breakpoint("medium") {
+    min-height: 80vh;
+  }
+
+  @include breakpoint("large") {
+    padding: rem(30) rem(40);
+    min-height: 90vh;
+  }
+
+  @include breakpoint("xlarge") {
+    min-height: 100vh;
+  }
+
+  svg {
+    transform: translateY(rem(50));
+
+    @include breakpoint("large") {
+      transform: translateY(rem(80));
+    }
+
+    @include breakpoint("xlarge") {
+      transform: translateY(rem(120));
+    }
+  }
+
+  &__logo {
+    width: rem(120);
+
+    a {
+      &:hover,
+      &:focus {
+        border-bottom: rem(2) solid rgba($white, 0.5);
+      }
+    }
+  }
+
+  &__btn {
+    position: relative;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all $transition;
+
+    @include breakpoint("medium") {
+      display: none;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 0;
+      bottom: 0;
+      left: 50%;
+      background: $white;
+      opacity: 0;
+      border-radius: 50%;
+      width: rem(40);
+      height: rem(40);
+      transform: translateY(-50%) translateX(-50%);
+      transition: opacity $transition;
+    }
+
+    &:hover::after,
+    &:focus::after,
+    &:active {
+      opacity: 0.3;
+    }
+  }
+
+  &__title {
+    margin-top: rem(80);
+    color: $white;
+    font-size: rem(35);
+    letter-spacing: rem(7);
+    text-transform: uppercase;
+    word-break: break-word;
+
+    @include breakpoint("large") {
+      font-size: rem(60);
+    }
+  }
+}

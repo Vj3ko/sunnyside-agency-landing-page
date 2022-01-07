@@ -1,0 +1,54 @@
+@use "./colors" as *;
+@use "../utilities" as *;
+@use "./typography" as *;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $white;
+  font-family: $barlow;
+}
+
+html {
+  font-size: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $fraunces;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+
+  &:visited {
+    color: none;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+p,
+q {
+  font-size: rem(18);
+  color: $vd-gray-blue;
+  line-height: 1.5;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
