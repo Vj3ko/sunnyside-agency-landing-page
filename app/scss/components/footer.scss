@@ -2,7 +2,7 @@
 @use "../utilities" as *;
 
 .footer {
-  background: $cyan-footer;
+  background: rgba($cyan-footer, 0.6);
   text-align: center;
   padding: rem(60) rem(30);
 
